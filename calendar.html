@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./calendar.css">
+  <script src="./calendar.js" defer></script>
+  <title>UI Calendar</title>
+</head>
+<body class="light">
+
+  <!--------- Calendar Box --------->
+  <div class="calendar">
+
+    <!--------- #1: Year & Month --------->
+    <div class="year-month">
+      <span id="month-picker">Feburary</span>
+      <div class="year-picker">
+        <span id="previous-year">
+          <pre><</pre>
+        </span>
+        <span id="year">2023</span>
+        <span id="next-year">
+          <pre>></pre>
+        </span>
+      </div>
+    </div>
+    <div class="day-date">
+      <div class="date-title">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="calendar-days"></div>
+    </div>
+
+
+    <!--------- #2: Footer buttons --------->
+    <div class="foot">
+
+      <!--------- Dark Mode Toggle --------->
+      <div class="dark-mode">
+        <div id="dark-mode-switch">
+          <div id="dark-mode-ident"></div>
+        </div>
+        <span>Dark Mode</span>
+      </div>
+
+      <!--------- Confirm Button --------->
+      <button id="calendar-confirm">Confirm</button>
+    </div>
+
+    <!--------- Confirm Button --------->
+    <div class="monthList"></div>
+  </div>
+</body>
+</html>
