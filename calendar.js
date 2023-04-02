@@ -146,16 +146,6 @@ dark.onclick = () => {
   document.querySelector('body').classList.toggle('dark')
 }
 
-// ******** Automatic Detection on dark mode ******** //
-if (curr_time.value < 6 || curr_time.value > 18) {
-  document.querySelector('body').classList.toggle('dark')
-}
-
-if (curr_time.value > 6 || curr_time.value < 18) {
-  document.querySelector('body').classList.toggle('light')
-}
-
-
 // ******** Submission Button ******** // 
 const btn = document.querySelector('#calendar-confirm')
 
