@@ -131,6 +131,7 @@ body {
   background-color: tomato;
   border-radius: 100%;
   color: var(--white);
+  cursor: pointer;
 }
 
 .calendar-days div.curr-date,
@@ -283,7 +284,3 @@ body {
   color: white;
   transition: 300ms;
 }
-
-
-
-
