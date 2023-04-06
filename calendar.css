@@ -53,6 +53,16 @@ body {
   background-color: var(--bg-body);
 }
 
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .calendar {
   height: max-content;
   width: max-content;
@@ -61,7 +71,39 @@ body {
   padding: 20px;
   position: relative;
   overflow: hidden;
+  visibility: visible;
   /* transform: scale(1.25); */
+}
+
+.user-input {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+}
+
+#user-input-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#user-input-btn:hover {
+  scale: 1.03;
+  transition: 300ms;
+}
+
+#user-input-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+#user-input {
+  padding: 0.2rem 0.5rem;
 }
 
 .light .calendar {
