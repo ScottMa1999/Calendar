@@ -1,4 +1,6 @@
 const calendar = document.querySelector('.calendar')
+// ******** Input Box ******** //
+const input = document.querySelector('#user-input')
 
 // ******** Month List ******** //
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -7,6 +9,8 @@ const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'Ju
 let selected_date_element = []
 let selected_date = []
 let input_date = []
+
+let styled_input_date = []
 
 // ******** Determine leap years ******** //
 isLeapYear = (year) => {
@@ -50,13 +54,14 @@ generateCalendar = (month, year, date) => {
         day.innerHTML = i - first_day.getDay() + 1
 
         // save selected elements while rerendering
-        if (selected_date.length > 0) {
+        if (selected_date.length > 0 && input_date.length == 0) {
           selected_date.forEach(date => {
             if (date.split('/')[1] === day.innerHTML && month === date.split('/')[0] - 1 && year === parseInt(date.split('/')[2])) {
               day.classList.remove('calendar-day-hover')
               day.classList.add('calendar-day-selected')
-              console.log(day.classList)
+              styled_input_date.push(day)
               }
+
           })
         }
 
@@ -64,9 +69,10 @@ generateCalendar = (month, year, date) => {
         // match day, month & year
         if (input_date.length > 0) {
           input_date.forEach(date => {
-            if (date.split('/')[1] === day.innerHTML && month === parseInt(date.split('/')[0] - 1) && year === date.split('/')[2]) {
+            if ((date.split('/')[1] === day.innerHTML || date.split('/')[1] === "0".concat(day.innerHTML)) && month === parseInt(date.split('/')[0] - 1) && year === date.split('/')[2]) {
               day.classList.remove('calendar-day-hover')
               day.classList.add('calendar-day-selected')
+              styled_input_date.push(day)
               }
 
             // update selected value
@@ -115,6 +121,7 @@ generateCalendar = (month, year, date) => {
         element.classList.add('calendar-day-hover')
         selected_date.pop()
         selected_date_element.pop()
+        input.value = selected_date[0] ? selected_date[0] : ""
       }
 
       // select the element if element hasn't been selected
@@ -132,6 +139,14 @@ generateCalendar = (month, year, date) => {
           if(selected_date_element.length > 0 && selected_date.length > 0) {
             selected_date_element[0].classList.remove('calendar-day-selected')
             selected_date_element[0].classList.add('calendar-day-hover')
+
+            if (styled_input_date.length > 0) {
+              styled_input_date.forEach(date => {
+                  date.classList.remove('calendar-day-selected')
+                  date.classList.add('calendar-day-hover')
+              })
+            }
+          
             selected_date_element.pop()
             selected_date.pop()
           }
@@ -139,13 +154,11 @@ generateCalendar = (month, year, date) => {
           // always push the elements and numbers
           selected_date_element.push(element)
           selected_date.push(selected_element)
+          input.value = selected_date[0] ? selected_date[0] : ""
         }
       }
     })
   })
-
-  console.log(selected_date)
-  console.log(selected_date_element)
 }
 
 // ******** Month List ******** //
@@ -180,9 +193,6 @@ generateCalendar(curr_month.value, curr_year.value, curr_date.value)
 
 
 
-
-// ******** Input Box ******** //
-const input = document.querySelector('#user-input')
 // input.value = "04/03/2022"
 const submit = document.querySelector('#user-input-btn')
 submit.addEventListener('click', (e) => {
@@ -190,6 +200,10 @@ submit.addEventListener('click', (e) => {
   let sub_month = parseInt(input.value.split('/')[0]) - 1
   let sub_day = parseInt(input.value.split('/')[1])
   let sub_year = input.value.split('/')[2]
+
+  curr_year.value = sub_year
+  curr_month.value = sub_month
+  curr_date.value = sub_day
 
   // check if the input data array is empty
   if (input_date.length > 0) {
