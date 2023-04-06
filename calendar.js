@@ -112,8 +112,7 @@ generateCalendar = (month, year, date) => {
 
       // ******** Format output ******** //
       const selected_element = `${month_names.indexOf(curr_month) + 1}/${element.textContent}/${year}`
-      
-      console.log(selected_date_element)
+     
 
       // deselect the element if element already selected
       if(element.classList.value === 'calendar-day-selected') {
