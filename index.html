@@ -10,64 +10,61 @@
 </head>
 <body class="light">
 
-  <!--------- Input Box --------->
-  <form>
-    <div class="user-input">
-      <span>User Input:</span>
-      <input type="text" id="user-input">
-
-
-      <button id="user-input-btn">Submit</button>
-    </div>
-  </form>
-
-  <!--------- Calendar Box --------->
-  <div class="calendar">
-
-    <!--------- #1: Year & Month --------->
-    <div class="year-month">
-      <span id="month-picker">Feburary</span>
-      <div class="year-picker">
-        <span id="previous-year">
-          <pre><</pre>
-        </span>
-        <span id="year">2023</span>
-        <span id="next-year">
-          <pre>></pre>
-        </span>
+  <div class="container">
+    <!--------- Input Box --------->
+    <form>
+      <div class="user-input">
+        <span>User Input:</span>
+        <input type="text" id="user-input" placeholder="MM/DD/YYYY">
+        <button id="user-input-btn">
+          <img src="./img/search.png" alt="search-icon" id="search-icon">
+        </button>
       </div>
-    </div>
-    <div class="day-date">
-      <div class="date-title">
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
-      </div>
-      <div class="calendar-days"></div>
-    </div>
-
-
-    <!--------- #2: Footer buttons --------->
-    <div class="foot">
-
-      <!--------- Dark Mode Toggle --------->
-      <div class="dark-mode">
-        <div id="dark-mode-switch">
-          <div id="dark-mode-ident"></div>
+    </form>
+    <!--------- Calendar Box --------->
+    <div class="calendar">
+      <!--------- #1: Year & Month --------->
+      <div class="year-month">
+        <span id="month-picker">Feburary</span>
+        <div class="year-picker">
+          <span id="previous-year">
+            <pre><</pre>
+          </span>
+          <span id="year">2023</span>
+          <span id="next-year">
+            <pre>></pre>
+          </span>
         </div>
-        <span>Dark Mode</span>
       </div>
-
-      <!--------- Confirm Button --------->
-      <button id="calendar-confirm">Confirm</button>
+      <!--------- #2: Days & Date --------->
+      <div class="day-date">
+        <div class="date-title">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="calendar-days"></div>
+      </div>
+      <!--------- #3: Footer buttons --------->
+      <div class="foot">
+        <!--------- #4: Dark Mode Toggle --------->
+        <div class="dark-mode">
+          <div id="dark-mode-switch">
+            <div id="dark-mode-ident"></div>
+          </div>
+          <span>Dark Mode</span>
+        </div>
+        <!--------- #5: Confirm Button --------->
+        <button id="calendar-confirm">Confirm</button>
+      </div>
+      <!--------- #6: Month Page --------->
+      <div class="monthList"></div>
     </div>
-
-    <!--------- Confirm Button --------->
-    <div class="monthList"></div>
   </div>
+
 </body>
 </html>
